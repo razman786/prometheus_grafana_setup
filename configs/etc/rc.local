@@ -1,0 +1,11 @@
+#!/bin/bash
+
+## this addresses https://github.com/cyriltasse/DDFacet/issues/327
+
+if [ -d /sys/kernel/mm/transparent_hugepage ]; then
+    echo never > /sys/kernel/mm/transparent_hugepage/enabled
+    echo never > /sys/kernel/mm/transparent_hugepage/defrag
+fi
+
+/sbin/modprobe bfq
+echo 'bfq' > /sys/block/sda/queue/scheduler
