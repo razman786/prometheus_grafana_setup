@@ -3,7 +3,14 @@ sudo add-apt-repository ppa:tuxinvader/lts-mainline -y
 sudo apt-get install linux-generic-5.18 -y
 apt install linux-tools-generic linux-tools-common-5.18.10
 apt install linux-buildinfo-5.18.10-051810-generic linux-doc linux-libc-dev linux-source-5.18.10
-sed 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="mitigations=off numa_balancing=disable amd_cpufreq=enable amd_cpufreq.cppc_enable=1 panic=5"/g' /etc/default/grub
+CPU_VENDOR=$(cat /proc/cpuinfo | grep 'vendor' | uniq | awk '{print $3}')
+if [[ "$CPU_VENDOR" == "GenuineIntel" ]]
+then
+  sed 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="mitigations=off panic=5"/g' /etc/default/grub
+elif [[ "$CPU_VENDOR" == "AuthenticAMD" ]]
+then
+  sed 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="mitigations=off numa_balancing=disable amd_cpufreq=enable amd_cpufreq.cppc_enable=1 panic=5"/g' /etc/default/grub
+fi
 update-grub2
 reboot
 cd /usr/src/
