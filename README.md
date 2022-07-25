@@ -1,2 +1,18 @@
 # prometheus_grafana_setup
 Personal setup scripts and config for prometheus, grafana and kernel tweaks
+
+## Short descriptions
+
+`config_swap.sh` sets the swappiness to 1%. Therefore, swap will not be used until free memory is 1% or lower.
+
+`config_systemctl.sh` disables and removes a number of unwanted services.
+
+`install_tools.sh` installs a number of useful tools including `numactl` and `ipmiutils`.
+
+`install_prometheus_node_exporter.sh` installs the node_exporter prometheus service for end-points that wish to be monitored.
+
+`install_prometheus_grafana.sh` installs the prometheus and grafana servers.
+
+`configs` directory contains a number of configuration files.
+
+`configs/etc/rc.local` and `configs/etc/modprobe.d/bfq.conf` can be used to switch the I/O scheduler to BFQ.
