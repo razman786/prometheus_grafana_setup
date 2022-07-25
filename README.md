@@ -19,3 +19,7 @@ some kernel tooling.
 `configs` directory contains a number of configuration files.
 
 `config_io_sched.sh` can be used to switch the I/O scheduler to BFQ.
+
+## BIOS
+
+THe BIOS should be set to `HPC profile`.
