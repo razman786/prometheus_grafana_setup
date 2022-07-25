@@ -3,7 +3,7 @@ sudo add-apt-repository ppa:tuxinvader/lts-mainline -y
 sudo apt-get install linux-generic-5.18 -y
 apt install linux-tools-generic linux-tools-common-5.18.10
 apt install linux-buildinfo-5.18.10-051810-generic linux-doc linux-libc-dev linux-source-5.18.10
-# add to /etc/default/grub: GRUB_CMDLINE_LINUX_DEFAULT="mitigations=off numa_balancing=disable initcall_blacklist=acpi_cpufreq_init amd_pstate.shared_mem=1 amd_cpufreq=enable amd_cpufreq.cppc_enable=1 panic=5"
+sed 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="mitigations=off numa_balancing=disable amd_cpufreq=enable amd_cpufreq.cppc_enable=1 panic=5"/g' /etc/default/grub
 update-grub2
 reboot
 cd /usr/src/
