@@ -15,4 +15,4 @@ Personal setup scripts and config for prometheus, grafana and kernel tweaks for 
 
 `configs` directory contains a number of configuration files.
 
-`configs/etc/rc.local` and `configs/etc/modprobe.d/bfq.conf` can be used to switch the I/O scheduler to BFQ.
+`config_io_sched.sh` can be used to switch the I/O scheduler to BFQ.
