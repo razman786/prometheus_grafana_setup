@@ -20,6 +20,9 @@ some kernel tooling.
 
 `config_io_sched.sh` can be used to switch the I/O scheduler to BFQ.
 
+`config_perc_h740p_mini_raid6.sh` can be used to set the RAID card to forced
+write back, with no read ahead and setup the IRQ affinity of block devices.
+
 ## BIOS
 
-THe BIOS should be set to `HPC profile`.
+The BIOS should be set to `HPC profile`.
