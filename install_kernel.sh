@@ -19,6 +19,7 @@ cd linux-source-5.18.10
 make -C tools/ perf_install prefix=/usr/
 apt install libpci-dev
 cd tools/power/cpupower/
+make install prefix=/usr/
 cp libcpupower.so* /usr/lib/
 cd ../x86/
 cd x86_energy_perf_policy/
