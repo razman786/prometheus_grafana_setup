@@ -4,7 +4,7 @@ dpkg -i configs/perccli_007.1623.0000.0000_all.deb
 /opt/MegaRAID/perccli/perccli64 /c0/v0 set wrcache=FWB
 # set no read ahead
 /opt/MegaRAID/perccli/perccli64 /c0/v0 set rdcache=NoRA
-# set IRQ affinity for block devices
+# set RQ affinity for block devices
 for blk in $(ls /sys/block/); do echo 2 > /sys/block/$blk/queue/rq_affinity; done
 
 # for example:
