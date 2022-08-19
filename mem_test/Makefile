@@ -1,8 +1,10 @@
 CC = gcc
-# optimised for server testing
-CFLAGS = -DNTIMES=100 -DOFFSET=0 -DSTREAM_TYPE=double -DSTREAM_ARRAY_SIZE=268435456 -Wall -O3 -mcmodel=medium -fopenmp -mtune=native
+# optimised for AMD EPYC server testing
+CFLAGS = -DNTIMES=100 -DOFFSET=0 -DSTREAM_TYPE=double -DSTREAM_ARRAY_SIZE=268435456 -Wall -O3 -mcmodel=medium -fopenmp -mtune=native -flto -funroll-all-loops
+# default server
+# CFLAGS = -DNTIMES=100 -DOFFSET=0 -DSTREAM_TYPE=double -DSTREAM_ARRAY_SIZE=268435456 -Wall -O3 -mcmodel=medium -fopenmp -mtune=native
 # default array size
-#CFLAGS = -DNTIMES=100 -DOFFSET=0 -DSTREAM_TYPE=double -DSTREAM_ARRAY_SIZE=2000000 -Wall -O3 -mcmodel=medium -fopenmp -mtune=native
+# CFLAGS = -DNTIMES=100 -DOFFSET=0 -DSTREAM_TYPE=double -DSTREAM_ARRAY_SIZE=2000000 -Wall -O3 -mcmodel=medium -fopenmp -mtune=native
 
 FF = gfortran
 FFLAGS = -O3 -mtune=native
